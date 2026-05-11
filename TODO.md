@@ -1,0 +1,134 @@
+# Tâches et structures à réaliser dans SariwonRP
+
+---
+
+## Composition d'un RP:
+
+---
+
+- Dés 4, 6, 10, 20 faces
+- Personnages
+-   - Nom
+-   - Âge
+-   - Sexe / Genre
+-   - Espèce
+-   - Classe
+-   - Métier
+-   - Alignement (aura/karma)
+-   - Histoire
+-   - XP
+-   - Niveau
+-   - PV
+-   - Caractéristiques
+-   -   - Force
+-   -   - Dextérité
+-   -   - Endurance
+-   -   - Intelligence
+-   -   - Sagesse
+-   -   - Charisme
+-   - Compétences
+-   -   - Physiques
+-   -   - De tir
+-   -   - Magiques
+-   -   - Psychiques
+-   -   - [AJOUT POSSIBLE]
+
+- Équipement
+-   - Armes
+-   -   - Nom
+-   -   - Description
+-   -   - Rareté
+-   -   - Type
+-   -   - Dés utilisé
+-   -   - Dégat
+-   -   - Minimum dégat crit.
+-   -   - Taux dégats critiques
+-   - Armures
+-   -   - Nom
+-   -   - Description
+-   -   - Rareté
+-   -   - Type
+-   -   - Taux Protection
+-   -   - Réduction dégat
+-   -   - Minimum annulation d'attaque
+-   - Objets magiques
+-   -   - ???
+-   - Artefacts
+-   -   - Nom
+-   -   - Description
+-   -   - Rareté
+-   -   - Type
+-   -   - Utilité
+-   - Potions
+-   -   - Nom
+-   -   - Description
+-   -   - Rareté
+-   -   - Type d'action
+-   -   - Valeur action
+-   - Outils
+-   -   - Nom
+-   -   - Description
+-   -   - Rareté
+-   -   - Type d'action
+-   -   - Efficacité
+-   - Accessoire
+-   -   - Nom
+-   -   - Description
+-   -   - Type
+-   -   - Type de compétence
+-   -   - Valeur de compétence
+-   - Véhicule / Monture
+-   -   - Nom
+-   -   - Description
+-   -   - PV
+-   -   - Rareté
+
+- Relations
+-   - Famille
+-   - Alliés
+-   - Ennemis
+-   - Factions/Guildes
+-   -   - Chef
+-   -   - Autres rôles créé par MJ
+-   - [AJOUT POSSIBLE]
+
+- Lieu
+-   - Nom
+-   - Description courte + longue
+-   - Type
+-   - Statut (actif, détruit, fermé, secret, interdit)
+-   - Visibilité (public, caché, quête)
+-   - Position
+-   -   - Zone / Région / Monde
+-   -   - Lieu parent ?
+-   -   - Coordonnées (x,y,z)
+-   -   - Niveau / Étage
+-   - Compétences autorisées
+-   - Zone sûre ?
+-   - Combat autorisé ?
+-   - Conditions d'accès
+-   -   - Niveau
+-   -   - Clé
+-   -   - Faction / Guilde
+-   -   - Quête
+-   -   - Permission
+-   - Niveau recommandé ?
+-   - Niveau de danger
+-   - Capacité (nombre personnes)
+-   - Temps de voyage
+-   - Ambiance
+-   -   - Ambiance générale
+-   -   - Climat
+-   -   - Météos possibles
+-   -   - Type de PNJ
+-   -   - Appartenance de faction
+-   -   - Niveau d'hostilité (anarchique, surveillé, militaire)
+-   -   - Niveau de santé général
+-   - Contenu
+-   -   - PNJs
+-   -   - Objets trouvables
+-   -   - Quêtes disponibles
+-   -   - Monstres / Ennemis
+-   -   - Événements (marché, attaque, festival, incendie, etc.)
+
+---

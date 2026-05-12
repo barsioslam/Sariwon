@@ -25,6 +25,7 @@ const Register = lazy(() => import("../../pages/public/Auth/Register"));
 const Logout = lazy(() => import("../../pages/public/Auth/Logout"));
 // APP PAGES
 const Profile = lazy(() => import("../../pages/player/Profile"));
+const ServerCreate = lazy(() => import("../../pages/player/ServerCreate"));
 // ADMIN PAGES
 const Dashboard = lazy(() => import("../../pages/admin/Dashboard"));
 // ERROR PAGES
@@ -56,22 +57,23 @@ function AppRouter() {
         <Route path={ROUTES.REGISTER} element={<Register />} />
         <Route path={ROUTES.LOGOUT} element={<Logout />} />
 
+        {/* Routes protégées — joueur */}
+        <Route path={ROUTES.PROFILE}    element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path={ROUTES.CHARACTERS} element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path={ROUTES.INVENTORY}  element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path={ROUTES.SKILLS}     element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path={ROUTES.JOURNAL}    element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path={ROUTES.WORLD}      element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path={ROUTES.FACTIONS}   element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path={ROUTES.SETTINGS}   element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+
+        {/* Servers */}
+        <Route path={ROUTES.SERVERS_CREATE} element={<ProtectedRoute><ServerCreate /></ProtectedRoute>} />
+
+        {/* Admin */}
         <Route
           path={ROUTES.DASHBOARD}
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path={ROUTES.PROFILE}
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
+          element={<ProtectedRoute><Dashboard /></ProtectedRoute>}
         />
 
         <Route path="*" element={<NotFound />} />

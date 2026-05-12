@@ -1,14 +1,18 @@
-import { PublicLayout } from "../../../layouts/PublicLayout";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/useAuth";
+import { ROUTES } from "../../../app/router/constants";
+import Loader from "../../../components/common/Loader";
 
 function Logout() {
-  return (
-    <PublicLayout>
-      <div className="text-center">
-        <h2 className="text-3xl font-bold mb-4">Welcome to SariwonRP</h2>
-        <p className="text-lg text-gray-700">LOGOUT</p>
-      </div>
-    </PublicLayout>
-  );
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    logout().finally(() => navigate(ROUTES.HOME, { replace: true }));
+  }, [logout, navigate]);
+
+  return <Loader />;
 }
 
 export default Logout;

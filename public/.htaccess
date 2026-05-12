@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Proxy /api/* → API PHP (HTTP interne, pas de mixed content)
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteRule ^api/(.*)$ http://rpgapi.taderlafe.com:8080/$1 [P,L]
+
+# SPA — toutes les autres routes → index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PlayerLayout } from "../../layouts/PlayerLayout";
 import { ROUTES } from "../../app/router/constants";
+import { api } from "../../services/apiClient";
 
 const GENRES = [
   { id: "fantasy",    label: "Fantasy",          icon: "⚔️" },
@@ -59,8 +60,10 @@ const inputCls = `w-full bg-slate-900 border border-slate-600 focus:border-amber
 
 export default function ServerCreate() {
   const navigate = useNavigate();
-  const [step, setStep]   = useState(0);
+  const [step, setStep]     = useState(0);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState("");
 
   const [form, setForm] = useState({
     name:        "",
@@ -92,10 +95,17 @@ export default function ServerCreate() {
   const next = () => { if (validateStep()) setStep((s) => s + 1); };
   const back = () => setStep((s) => s - 1);
 
-  const handleSubmit = () => {
-    /* TODO: appel API POST /servers */
-    console.log("Créer serveur", form);
-    navigate(ROUTES.PROFILE);
+  const handleSubmit = async () => {
+    setApiError("");
+    setLoading(true);
+    try {
+      const server = await api.post("/servers", form);
+      navigate(`/app/servers/${server.id}`);
+    } catch (err) {
+      setApiError(err.message || "Une erreur est survenue.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -256,11 +266,18 @@ export default function ServerCreate() {
             </div>
           )}
 
+          {/* ── Erreur API ── */}
+          {apiError && (
+            <p className="text-sm text-rose-400 bg-rose-500/10 border border-rose-500/20 rounded-lg px-4 py-2">
+              {apiError}
+            </p>
+          )}
+
           {/* ── Navigation ── */}
           <div className="flex justify-between pt-2 border-t border-slate-700">
             <button
               onClick={back}
-              disabled={step === 0}
+              disabled={step === 0 || loading}
               className="px-4 py-2 rounded-lg border border-slate-600 text-sm text-slate-400 hover:text-slate-200 hover:border-slate-500 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               Précédent
@@ -276,9 +293,10 @@ export default function ServerCreate() {
             ) : (
               <button
                 onClick={handleSubmit}
-                className="px-5 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-900 text-sm font-semibold transition-colors"
+                disabled={loading}
+                className="px-5 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-900 text-sm font-semibold transition-colors"
               >
-                Créer le RP
+                {loading ? "Création…" : "Créer le RP"}
               </button>
             )}
           </div>
